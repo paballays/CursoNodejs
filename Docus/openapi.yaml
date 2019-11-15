@@ -1,0 +1,632 @@
+openapi: 3.0.0
+info:
+  title: API Veterinarias- doc aop
+  description: 'Documentación para API Veterinaria'
+  contact:
+    email: pablo.aballay@gmail.com
+    #ejemplo de doc swagger para open api
+  version: 1.4.0
+servers:
+- url: localhost
+paths:
+  /mascotas:
+    get:
+      tags:
+      - Mascotas
+      summary: Obtener un listado de las mascotas existentes
+      operationId: obtenerMascotas
+      responses:
+        200:
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Mascota'
+        500:
+          description: Hubo un error al obtener el listado de mascotas
+          content: {}
+    post:
+      tags:
+      - Mascotas
+      summary: Agregar una nueva mascota
+      operationId: agregarMascota
+      requestBody:
+        description: Objeto mascota a ser creado
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mascota'
+        required: true
+      responses:
+        201:
+          description: La mascota fue creada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mascota'
+        400:
+          description: Los datos de la mascota son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la mascota
+          content: {}
+    patch:
+      tags:
+      - Mascotas
+      summary: Modificar una mascota
+      operationId: modificarMascota
+      requestBody:
+        description: Objeto mascota a ser modificada
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mascota'
+        required: true
+      responses:
+        201:
+          description: La mascota fue modificada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mascota'
+        400:
+          description: Los datos de la mascota son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la mascota
+          content: {}
+    delete:
+      tags:
+      - Mascotas
+      summary: Modificar una mascota
+      operationId: eliminarMascota
+      responses:
+        204:
+          description: La mascota fue eliminada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mascota'
+        400:
+          description: Los datos de la mascota son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la mascota
+          content: {}
+  /vacunas:
+    get:
+      tags:
+      - Vacunas
+      summary: Obtener un listado de las vacunas por mascotas
+      operationId: obtenerVa
+      responses:
+        200:
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vacuna'
+        500:
+          description: Hubo un error al obtener el listado de mascotas
+          content: {}
+    post:
+      tags:
+      - Vacunas
+      summary: Agregar una nueva vacuna
+      operationId: agregarVacuna
+      requestBody:
+        description: Objeto vacuna se creará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vacuna'
+        required: true
+      responses:
+        201:
+          description: La vacuna fue creada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vacuna'
+        400:
+          description: Los datos de la vacuna son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la vacuna
+          content: {}
+    patch:
+      tags:
+      - Vacunas
+      summary: Midificar una vacuna
+      operationId: modificarVacuna
+      requestBody:
+        description: Objeto vacuna se actualizará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vacuna'
+        required: true
+      responses:
+        200:
+          description: La vacuna fue actualizada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vacuna'
+        400:
+          description: Los datos de la vacuna son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la vacuna
+          content: {}
+    delete:
+      tags:
+      - Vacunas
+      summary: Eliminar una vacuna
+      operationId: eliminarVacuna
+      responses:
+        204:
+          description: La vacuna fue eliminada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vacuna'
+        400:
+          description: Los datos de la vacuna son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la vacuna
+          content: {}
+  /veterinarias:
+    get:
+      tags:
+      - Veterinarias
+      summary: Obtener un listado de las veterinarias
+      operationId: obtenerveterinaria
+      responses:
+        200:
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Veterinarias'
+        500:
+          description: Hubo un error al obtener el listado de mascotas
+          content: {}
+    post:
+      tags:
+      - Veterinarias
+      summary: Agregar una nueva veterinaria
+      operationId: agregarVeterinaria
+      requestBody:
+        description: Objeto veterinaria se creará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Veterinarias'
+        required: true
+      responses:
+        201:
+          description: La veterinaria fue creada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Veterinarias'
+        400:
+          description: Los datos de la veterinaria son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la vacuna
+          content: {}
+    patch:
+      tags:
+      - Veterinarias
+      summary: Agregar una nueva veterinaria
+      operationId: modificarVeterinaria
+      requestBody:
+        description: Objeto veterinaria se actualizará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Veterinarias'
+        required: true
+      responses:
+        200:
+          description: La veterinaria fue actualizada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Veterinarias'
+        400:
+          description: Los datos de la veterinaria son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al modificar la veterinaria
+          content: {}
+    delete:
+      tags: 
+      - Veterinarias
+      summary: Agregar una nueva veterinaria
+      operationId: eliminarVeterinaria
+      responses:
+        204:
+          description: La veterinaria fue eliminada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Veterinarias'
+        400:
+          description: Los datos de la veterinaria son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la veterinaria
+          content: {}
+  /Usuarios:
+    post:
+      tags:
+      - Usuarios
+      summary: Agregar un nuevo usuario
+      operationId: agregarUsuario
+      requestBody:
+        description: Objeto usuario se creará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuarios'
+        required: true
+      responses:
+        201:
+          description: El usuario fue creado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuarios'
+        400:
+          description: Los datos del usuario son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear la usuario
+          content: {}
+    patch:
+      tags:
+      - Usuarios
+      summary: Actualizar un usuario
+      operationId: modificarUsuario
+      requestBody:
+        description: Objeto usuario se actualizará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuarios'
+        required: true
+      responses:
+        201:
+          description: El usuario fue actualizado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuarios'
+        400:
+          description: Los datos del usuario son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al actualizar el usuario
+          content: {}
+  /comentarios:
+    get:
+      tags:
+      - Comentarios
+      summary: Obtener un listado 
+      operationId: obtenercomentarios
+      responses:
+        200:
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comentarios'
+        500:
+          description: Hubo un error al obtener el listado de comentarios
+          content: {}
+    post:
+      tags:
+      - Comentarios
+      summary: Agregar una nuevo comentario
+      operationId: agregarcomentarios
+      requestBody:
+        description: Objeto comentarios se creará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comentarios'
+        required: true
+      responses:
+        201:
+          description: El comentarios fue creada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comentarios'
+        400:
+          description: Los datos del comentario son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear comentarios
+          content: {}
+    patch:
+      tags:
+      - Comentarios
+      summary: Modificar un comentario
+      operationId: modificarcomentarios
+      requestBody:
+        description: Objeto comentario se actualizará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comentarios'
+        required: true
+      responses:
+        200:
+          description: El comentarios fue actualizada con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comentarios'
+        400:
+          description: Los datos del comentario son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al modificar la comentario
+          content: {}
+    delete:
+      tags: 
+      - Comentarios
+      summary: Eliminar un comentario
+      operationId: eliminarcomentarios
+      responses:
+        204:
+          description: El comentario fue eliminado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comentarios'
+        400:
+          description: Los datos del comentario son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear comentario
+          content: {}
+  /turnos:
+    get:
+      tags:
+      - Turnos
+      summary: Obtener un listado por fecha
+      operationId: obtenerTurnos
+      responses:
+        200:
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Turnos'
+        500:
+          description: Hubo un error al obtener el listado de comentarios
+          content: {}
+    post:
+      tags:
+      - Turnos
+      summary: Agregar una nuevo Turno
+      operationId: agregarTurnos
+      requestBody:
+        description: Objeto Turnos se creará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Turnos'
+        required: true
+      responses:
+        201:
+          description: El Turno fue creado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Turnos'
+        400:
+          description: Los datos del comentario son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear comentarios
+          content: {}
+    patch:
+      tags:
+      - Turnos
+      summary: Modificar un Turno
+      operationId: modificarTurnos
+      requestBody:
+        description: Objeto Turnos se actualizará
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Turnos'
+        required: true
+      responses:
+        200:
+          description: El Turno fue actualizado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Turnos'
+        400:
+          description: Los datos del Turno son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al modificar Turno
+          content: {}
+    delete:
+      tags: 
+      - Turnos
+      summary: Eliminar un Turno
+      operationId: eliminarTurnos
+      responses:
+        204:
+          description: El Turno fue eliminado con éxito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Turnos'
+        400:
+          description: Los datos del Turno son incorrectos
+          content: {}
+        500:
+          description: Ocurrió un error al crear Turno
+          content: {}
+components:
+  schemas:
+    Mascota:
+      required:
+      - nombre
+      - tipo
+      - iduser
+      type: object
+      properties:
+        _id:
+          type: string
+        iduser:
+          type: string
+          example: uuid válido
+        nombre:
+          type: string
+          example: Pepito
+        tipo:
+          type: string
+          enum: [PERRO, GATO]
+          example: PERRO
+        esDeRaza:
+          type: boolean
+          example: true, false
+        fechaNacimiento:
+          type: string
+          format: date
+          example: dd/mm/yyyy
+    Vacuna:
+      required:
+      - tipo
+      - fecharealizacion
+      - idmascota
+      type: object
+      properties:
+        _id:
+          type: string
+          example: uuid
+        tipo:
+          type: string
+          example: [NPN,CDV,CAV,CPV]
+        fecharealizacion:
+          type: string
+          example: 01/01/1900
+        idmascota:
+          type: string
+          example: uuid
+    Veterinarias:
+      required:
+      - iduser
+      - servicio
+      type: object
+      properties:
+        _id:
+          type: string
+          example: uuid
+        nombre:
+          type: string
+          example: Pichichus
+        iduser:
+          type: string
+          example: uuid
+        esActiva:
+          type: boolean
+          example: true,false
+    Comentarios:
+      required:
+      - iduser
+      type: object
+      properties:
+        _id:
+          type: string
+          example: uuid
+        iduser:
+          type: string
+          example: uuid
+        aiduser:
+          type: string
+          example: uuid
+        idveterinaria:
+          type: string
+          example: uuid
+        idmascota:
+          type: string
+          example: uuid
+        tipo: 
+          type: string
+          example: [MSJ,CAL,EXT]
+        mensajes:
+          type: string
+          example: Texto del comentario, calificacion o mensaje
+        fecha:
+          type: string
+          example: dd/mm/yyyy
+    Usuarios:
+      required:
+      - iduser
+      type: object
+      properties:
+        _id:
+          type: string
+          example: uuid
+        alias:
+          type: string
+          example: uuid
+        email:
+          type: string
+          example: example@mail.com
+        password:
+          type: string
+          example: mi contraseña
+        rol:
+          type: string
+          example: [USER,ADM]
+        esUser:
+          type: string
+          example: [true,false]
+    Turnos:
+      required:
+      - iduser
+      type: object
+      properties:
+        _id:
+          type: string
+          example: uuid
+        idusuario:
+          type: string
+          example: uuid
+        idmascota:
+          type: string
+          example: uuid
+        detalle:
+          type: string
+          example: Descripcion de la mascota
+        fecha:
+          type: string
+          example: dd/mm/yyyy hh:mm:ss
+        estado:
+          type: string
+          example: [PERDIDA,ENCONTRADA]
